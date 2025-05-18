@@ -1,23 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GTA City Game</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>3D GTA-style Game</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; overflow: hidden; height: 100%;
+    background: #222;
+    font-family: Arial, sans-serif;
+  }
+  canvas#game {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+  }
+  .controls {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  button.control-btn {
+    width: 60px; height: 60px;
+    background: rgba(255,255,255,0.3);
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #000;
+    user-select: none;
+  }
+  #enterCar {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    background: #0a84ff;
+    color: white;
+    border-radius: 6px;
+    border: none;
+  }
+</style>
 </head>
 <body>
-  <canvas id="game"></canvas>
 
-  <!-- On-screen controls (for mobile) -->
-  <div id="controls">
-    <button id="up">↑</button>
-    <button id="left">←</button>
-    <button id="right">→</button>
-    <button id="down">↓</button>
-    <button id="enterCar">🚗</button>
-  </div>
+<canvas id="game"></canvas>
 
-  <script type="module" src="main.js"></script>
+<div class="controls">
+  <button id="left" class="control-btn">◀</button>
+  <button id="up" class="control-btn">▲</button>
+  <button id="down" class="control-btn">▼</button>
+  <button id="right" class="control-btn">▶</button>
+</div>
+
+<button id="enterCar">Enter Car</button>
+
+<script type="module" src="main.js"></script>
+
 </body>
 </html>
