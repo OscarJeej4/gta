@@ -1,65 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>3D GTA-style Game</title>
-<style>
-  body, html {
-    margin: 0; padding: 0; overflow: hidden; height: 100%;
-    background: #222;
-    font-family: Arial, sans-serif;
-  }
-  canvas#game {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-  }
-  .controls {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-  }
-  button.control-btn {
-    width: 60px; height: 60px;
-    background: rgba(255,255,255,0.3);
-    border: none;
-    border-radius: 10px;
-    font-size: 20px;
-    color: #000;
-    user-select: none;
-  }
-  #enterCar {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 100px;
-    height: 40px;
-    font-size: 18px;
-    background: #0a84ff;
-    color: white;
-    border-radius: 6px;
-    border: none;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTA Game</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    #controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .btn {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 10px;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      font-size: 20px;
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    #enterCar {
+      position: absolute;
+      bottom: 100px;
+      right: 20px;
+      width: 100px;
+      height: 50px;
+      background: rgba(255, 100, 100, 0.8);
+      font-size: 14px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
+  <canvas id="game"></canvas>
 
-<canvas id="game"></canvas>
+  <!-- Mobile Controls -->
+  <div id="controls">
+    <div class="btn" id="up">▲</div>
+    <div style="display: flex;">
+      <div class="btn" id="left">◀</div>
+      <div class="btn" id="down">▼</div>
+      <div class="btn" id="right">▶</div>
+    </div>
+  </div>
+  <div id="enterCar">Enter Car</div>
 
-<div class="controls">
-  <button id="left" class="control-btn">◀</button>
-  <button id="up" class="control-btn">▲</button>
-  <button id="down" class="control-btn">▼</button>
-  <button id="right" class="control-btn">▶</button>
-</div>
-
-<button id="enterCar">Enter Car</button>
-
-<script type="module" src="main.js"></script>
-
+  <script type="module" src="main.js"></script>
 </body>
 </html>
